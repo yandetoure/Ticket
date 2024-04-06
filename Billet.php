@@ -35,6 +35,10 @@ public function getClient(){
 public function getTrajet(){
     return $this->trajet;
 }
+public function ajouter(){
+
+    
+}
 
 public function read(){
     try{
