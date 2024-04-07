@@ -2,7 +2,7 @@
 <?php 
                 include_once "config.php";
                 include "header.php";
-                $sql = "SELECT * ,billets.id AS idB FROM billets JOIN client ON billets.client_id=client.id WHERE client_id= :id";
+                $sql = "SELECT *,billets.id AS billets FROM billets JOIN client ON billets.client_id=client.id WHERE billets.id = :id";
                 $stmt = $connexion->prepare($sql);
                 $stmt->bindParam(':id',$_GET['id'],PDO::PARAM_INT);
                 $stmt->execute();
@@ -23,8 +23,8 @@
             <li>Statut : <?=$row['statut']?></li>
             </ul>
             <p>Veuillez vérifier toutes les informations avec attention. Bon voyage!</p>
-            <button class="modifier"><a href="modifier.php?id=<?=$row['idB']?>">Modifier</a></button>
-            <button class="annuler"><a href="supprimer.php?id=<?=$row['id']?>">Annuler</a></button>
+            <button class="modifier"><a href="modifier.php?id=<?=$row['id']?>">Modifier</a></button>
+            <button class="annuler"><a href="supprimer.php?id=<?=$row['billets']?>">Annuler</a></button>
     </div>
 <div class="img">
 <img src="images/logo.jpg" alt="">

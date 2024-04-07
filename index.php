@@ -2,8 +2,10 @@
 <?php 
                 include_once "config.php";
                 include "header.php";
-                $sql = "SELECT * FROM billets JOIN client ON billets.client_id=client.id";
+                $sql = "SELECT * ,billets.id AS billets FROM billets
+                 JOIN client ON billets.client_id=client.id ";
                 $stmt = $connexion->prepare($sql);
+                // $stmt->bindParam('id',$_GET['id']);
                 $stmt->execute();
                   if ($stmt->rowCount() > 0) {
                         // Afficher les membres dans des cartes Bootstrap
@@ -22,7 +24,7 @@
 Bon voyage,</div>
           <div class="projcard-tagbox">
           </div>
-          <span class="projcard-tag"><a href="accueil.php?id=<?=$row['id']?>">Detail</a></span>
+          <span class="projcard-tag"><a href="accueil.php?id=<?=$row['billets']?>">Detail</a></span>
         </div>
       </div>
     </div>

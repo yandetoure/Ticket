@@ -39,7 +39,18 @@ public function ajouter(){
 
     
 }
-
+public function supprimer($id){
+    try {
+        $sql = "DELETE FROM billets WHERE id= :id";
+        $stmt = $this->connexion->prepare($sql);
+        $stmt->bindParam(':id', $_GET['id'], PDO::PARAM_INT);
+        $stmt->execute();
+        header('location:index.php');
+    } catch (PDOException $e) {
+        die("erreur: impossible de faire la suppression" . $e->getMessage());
+    }
+    
+}
 public function read(){
     try{
         $sql="SELECT * FROM billets ";
