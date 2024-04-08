@@ -1,8 +1,8 @@
 <!-- <?php
 include_once 'config.php';
+include_once 'Ticket.php';
 
-// if($_SERVER['REQUEST_METHOD'] === "POST" ){
-    if (isset($_POST['envoyer'])){
+if($_SERVER['REQUEST_METHOD'] === "POST" ){
 
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
@@ -19,7 +19,6 @@ include_once 'config.php';
     $creation_date = date("Y-m-d H:i:s");
 
     $ticket->addTicket($connexion,$first_name,$last_name, $email, $passport_number, $arrival_date, $class, $mode, $pays, $creation_date, $departure_date,$telephone, $adress, $return_date);
-    header("location:index.php");
 }else{
     echo "erreur";
 }
@@ -37,7 +36,7 @@ include_once 'config.php';
     <style>
         /*Ajout d'une image en arrière plan */
 .body{
-    background-image: url(images/1.jpg);
+    /* background-image: url(images/1.jpg); */
         display: flex;
     flex-direction: column;
     justify-content: center;
@@ -194,7 +193,7 @@ include_once 'config.php';
                             }
                         }
                         ?>
-                    </select>php
+                    </select>
                                     </div>
                                 </div>
                             </div>

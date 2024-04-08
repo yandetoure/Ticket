@@ -16,8 +16,6 @@ private $adress;
 private $creation_date;
 private $arrival_date;
 
-
-
 public function  __construct($connexion, $first_name, $last_name, $email, $adress, $telephone, $pays, $mode, $class, $departure_date, $arrival_date, $creation_date, $passport_number, $return_date){
 $this->connexion=$connexion;
 $this->first_name = $first_name;
@@ -34,10 +32,45 @@ $this->creation_date = $creation_date;
 $this->arrival_date = $arrival_date;
 $this->return_date = $return_date;
 
-
-
-
-
+}
+public function getFirst_name(){
+    return $this->first_name;
+}
+public function getLast_name(){
+    return $this->last_name;
+}
+public function getTelephone(){
+    return $this->telephone;
+}
+public function getEmail(){
+    return $this->email;
+}
+public function getPassport_number(){
+    return $this->passport_number;
+}
+public function getMode(){
+    return $this->mode;
+}
+public function getPays(){
+    return $this->pays;
+}
+public function getClass(){
+    return $this->class;
+}
+public function getDeparture_date(){
+    return $this->departure_date;
+}
+public function getReturn_date(){
+    return $this->return_date;
+}
+public function getAdress(){
+    return $this->adress;
+}
+public function getCreation_date(){
+    return $this->creation_date;
+}
+public function getArrival_date(){
+    return $this->arrival_date;
 }
 
 public function addTicket($connexion,$first_name,$last_name, $email, $passport_number, $arrival_date, $adress,$telephone, $class, $mode, $pays, $creation_date, $departure_date, $return_date, ){
