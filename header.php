@@ -10,8 +10,8 @@
 <div class="logo"><img src="images/illustration-images-logo-voyage_6543-1060.avif" alt="logo"></div>
 <nav>
     <ul>
-        <li><a href="#">Accueill</a></li>
-        <li><a href="ajouter.php">Réserver un billet</a></li>
+        <li><a href="index.php">Accueill</a></li>
+        <li><a href="add.php">Réserver un billet</a></li>
         <li><a href="index.php">Les billet disponible</a></li>
     </ul>
 </nav>

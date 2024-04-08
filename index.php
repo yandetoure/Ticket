@@ -2,11 +2,12 @@
 <?php 
                 include_once "config.php";
                 include "header.php";
-                $sql = "SELECT * ,billets.id AS billets FROM billets
-                 JOIN client ON billets.client_id=client.id ";
-                $stmt = $connexion->prepare($sql);
-                // $stmt->bindParam('id',$_GET['id']);
-                $stmt->execute();
+                $sql = "SELECT Ticket.*, Pays.name AS pays_name
+                FROM Ticket
+                JOIN Pays ON Ticket.id_pays = Pays.id";
+       $stmt = $connexion->prepare($sql);
+
+       $stmt->execute();
                   if ($stmt->rowCount() > 0) {
                         // Afficher les membres dans des cartes Bootstrap
                         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
@@ -16,15 +17,17 @@
       <div class="projcard-innerbox">
         <img class="projcard-img" src="https://picsum.photos/800/600?image=1041" />
         <div class="projcard-textbox">
-          <div class="projcard-title">Client: <?=$row['prenom']?><?=$row['nom']?></div>
-          <div class="projcard-subtitle">Prix du billet : <?=$row['prix']?></div>
-          <div class="projcard-bar"></div>
-          <div class="projcard-description">Nous sommes ravis de vous accueillir à bord de notre vol de <?=$row['trajet']?>. Votre aventure commence le <?=$row['date_reservation'] ?>, et nous sommes impatients de faire partie de votre voyage. Préparez-vous à vivre une expérience de vol exceptionnelle avec nous.
+        <h4>Nom du passager : <?=$row['first_name']?> <?=$row['last_name']?></h4>
 
-Bon voyage,</div>
+          <div class="projcard-bar"></div>
+          <div class="projcard-description"> 
+          <div class="projcard-subtitl">Trajet du billet : <?=$row['pays_name']?></div>
+          <h4> Date de départ : <?=$row['departure_date']?> </h4>
+          <h4> Email du client : <?=$row['email']?> </h4>
+</div>
           <div class="projcard-tagbox">
           </div>
-          <span class="projcard-tag"><a href="accueil.php?id=<?=$row['billets']?>">Detail</a></span>
+          <span class="projcard-tag"><a href="accueil.php?id=<?=$row['id']?>">Detail</a></span>
         </div>
       </div>
     </div>

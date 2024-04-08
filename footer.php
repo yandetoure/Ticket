@@ -1,6 +1,11 @@
 <link rel="stylesheet" href="style.css">
 <footer>
 <div class="footer-card">
+    <style>
+        .footer-card{
+            margin : 100px;
+        }
+    </style>
 <div class="footer1">
     <h4>USEFUL LINKS</h4>
 <ul>
